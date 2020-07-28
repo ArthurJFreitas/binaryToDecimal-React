@@ -3,7 +3,7 @@ import React from 'react';
 const Display = ({decimal, isBin}) => {
     return (
         <div className="display">
-            { isBin ? <span>{decimal}</span> : <span> Insira um binario</span>}
+            { isBin && decimal ? <h3> Your decimal: {decimal}</h3> : <span role="img"> 🤷 Waiting for a binary number</span>}
         </div>
     )
 }

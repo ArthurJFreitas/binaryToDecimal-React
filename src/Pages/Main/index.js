@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Input from '../../Components/Input';
 import Display from '../../Components/Display';
+import './index.css'
 
 const Main = () => {
 
@@ -33,10 +34,20 @@ const Main = () => {
     }
 
     return(
-        <>
-            <Input binary={bin.value} handleBinary={handleBinary} />
-            <Display isBin={bin.binary} decimal={dec} />
-        </>
+        <div className="main">
+            <div className="content">
+                <div>
+                 <h1><span className="zero">000</span>Bin2Dec<span className="zero">000</span></h1>
+                </div>
+                <div>Enter a binary number, and get the decimal conversion</div>
+                {!bin.binary && bin.value.length > 0 && <h4 class="error">You entered a non-binary digit (please enter only 0 or 1).</h4>}
+                <Input binary={bin.value} handleBinary={handleBinary} />
+                <Display isBin={bin.binary} decimal={dec} />
+            </div>
+            <footer>
+                Made by <a href="https://github.com/ArthurJFreitas">Arthur Freitas</a>
+            </footer>
+        </div>
     )
 }
 
